@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {motion} from "framer-motion";
+import {Link} from "react-router-dom";
 
 
 export const Navbar = () => {
@@ -9,6 +10,10 @@ export const Navbar = () => {
   const checkSize = () => {
     setIsOpen(window.innerWidth < 768);
   };
+
+  // useEffect(() => {
+  //   console.log('isVertical:', isVertical);
+  // }, [isVertical]);
 
   useEffect(() => {
     window.addEventListener("resize", checkSize);
@@ -42,9 +47,10 @@ const SlideTabs = ({isVertical}) => {
       // className={`relative mx-auto ${isVertical ? 'flex' : 'flex-col'} w-fit border-black bg-white p-1`}
       className={`relative mx-auto ${isVertical ? 'flex absolute left-0' : 'flex-col '} w-fit bg-white p-1`}
     >
-      <Tab setPosition={setPosition}>Home</Tab>
-      <Tab setPosition={setPosition}>Projects</Tab>
-      <Tab setPosition={setPosition}>Blog</Tab>
+      <Tab setPosition={setPosition} to="/">Home</Tab>
+      <Tab setPosition={setPosition} to="/projects">Projects</Tab>
+      <Tab setPosition={setPosition} to="/contact">Contact</Tab>
+
 
       <Cursor position={position}/>
     </ul>
@@ -52,36 +58,38 @@ const SlideTabs = ({isVertical}) => {
 };
 
 
-const Tab = ({children, setPosition, isVertical}) => {
+const Tab = ({children, setPosition, to, isVertical}) => {
   const ref = useRef(null);
 
   return (
-    <li
-      ref={ref}
-      onMouseEnter={() => {
-        // for ts
-        if (!ref?.current) return;
+    <Link to={to}>
 
-        const data = ref.current.getBoundingClientRect();
-        // console.log(data)
-        // console.log(ref.current.offsetTop)
+      <li
+        ref={ref}
+        onMouseEnter={() => {
+          // for ts
+          if (!ref?.current) return;
 
-        const {width, height} = ref.current.getBoundingClientRect();
+          // const data = ref.current.getBoundingClientRect();
+          // console.log(data)
+          // console.log(ref.current.offsetTop)
 
-        setPosition({
-          left: ref.current.offsetLeft,
-          top: ref.current.offsetTop,
-          width: width,
-          height: height,
-          opacity: 1,
-        });
-      }}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
-      // className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base ${isVertical ? 'w-full' : ''}`}
-    >
-      {/*Whats children*/}
-      {children}
-    </li>
+          const {width, height} = ref.current.getBoundingClientRect();
+
+          setPosition({
+            left: ref.current.offsetLeft,
+            top: ref.current.offsetTop,
+            width: width,
+            height: height,
+            opacity: 1,
+          });
+        }}
+        className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-2 md:text-base"
+        style={{fontFamily: 'Cascadia Mono, Arial', fontSize: '18px'}}
+      >
+        {children}
+      </li>
+    </Link>
   );
 };
 
@@ -91,7 +99,7 @@ const Cursor = ({position, isVertical}) => {
       animate={{
         ...position,
       }}
-      className={`absolute z-0 ${isVertical ? 'w-7' : 'h-7'} rounded-full bg-black md:${isVertical ? 'w-12' : 'h-12'}`}
+      className={`absolute z-0 ${isVertical ? 'w-7' : 'h-7'} border rounded-md bg-black md:${isVertical ? 'w-12' : 'h-12'}`}
     />
   );
 };

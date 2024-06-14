@@ -1,29 +1,31 @@
 import './App.css';
 import {Navbar} from "./Components/Navbar";
 import Footer from "./Components/Footer";
-import Projects from "./Components/Projects"
-import ProjectsLeft from "./Components/ProjectsLeft";
-import ProjectsRight from "./Components/ProjectsRight";
+import Projects from "./Components/Projects";
+import {Route, Routes} from "react-router-dom";
+import Home from "./Components/Home";
+import Contact from "./Components/Contact";
 
 function App() {
   return (
     <>
       <Navbar/>
-      <div className="flex">
-        <div className="w-1/4">
-          <ProjectsLeft/>
-        </div>
-        <div className="w-3/4">
-          <ProjectsRight/>
-        </div>
-      </div>
-      <div className="w-full">
-        <Footer/>
+      <div className="flex flex-col min-h-screen justify-between">
 
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          {/*<Route path="/" element={<Sorting/>}/>*/}
+          <Route path="/projects/*" element={<Projects/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+        </Routes>
+
+
+        <div className="">
+          <Footer/>
+        </div>
       </div>
     </>
   );
 }
-
 
 export default App;
