@@ -1,16 +1,16 @@
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
-function Line({height, xPos, color}) {
+function Line({ height, xPos, color, width }) {
   return (
     <motion.div
-      style={{backgroundColor: 'orange'}}
+      style={{ backgroundColor: 'orange' }}
       animate={{
-        x: xPos * 10,
+        x: xPos * width,
         height: `${height * 10}px`,
         backgroundColor: color,
-        width: '20px',
+        width: `${width}px`,
       }}
-      transition={{duration: 0.4}}
+      transition={{ duration: 0.4 }}
     />
   );
 }

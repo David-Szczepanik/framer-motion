@@ -9,21 +9,17 @@ import Contact from "./Components/Contact";
 function App() {
   return (
     <>
+    <div className="flex flex-col min-h-screen justify-between">
       <Navbar/>
-      <div className="flex flex-col min-h-screen justify-between">
 
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          {/*<Route path="/" element={<Sorting/>}/>*/}
-          <Route path="/projects/*" element={<Projects/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/projects/*" element={<Projects/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+      </Routes>
 
-
-        <div className="">
-          <Footer/>
-        </div>
-      </div>
+      <Footer/>
+    </div>
     </>
   );
 }
