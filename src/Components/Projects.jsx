@@ -7,11 +7,16 @@ import HashDocs from "./Projects/HashDocs";
 import Tetris from './Projects/Tetris';
 import TetrisDocs from "./Projects/TetrisDocs";
 import DSA from './Projects/DSA';
+import Sorting from "./Sorting/Sorting";
 
 function Projects() {
   return (
-    <div className="flex flex-col sm:flex-row ml-4 transition-all duration-200">
-      <div className="w-full sm:w-1/4 mr-4 transition-all duration-200">
+    <>
+    <div className="lines">
+      <div className="line"></div>
+    </div>
+  <div className="flex flex-col sm:flex-row ml-4 transition-all duration-200">
+  <div className="w-full sm:w-1/4 mr-4 transition-all duration-200">
         <ProjectsLeft/>
       </div>
 
@@ -29,6 +34,7 @@ function Projects() {
         </Routes>
       </div>
     </div>
+    </>
   );
 }
 

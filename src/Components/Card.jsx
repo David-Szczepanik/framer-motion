@@ -42,11 +42,12 @@ function Card({img1 = 'img1', img2 = 'img2', title = 'title', text = 'text', set
     <motion.button
       onClick={() => handleClick(index)}
       style={{width: '230px', height: '170px'}}
-      className="flex-1 bg-white border border-gray-400 transition-0.3 rounded-lg flex flex-col justify-center items-center neon-border"
+      // className="flex-1 bg-white border border-gray-400 transition-0.3 rounded-lg flex flex-col justify-center items-center neon-border"
+      className="flex-1 bg-white bg-opacity-60 border border-gray-400 transition-0.3 rounded-lg flex flex-col justify-center items-center shadow-lg"
       whileHover={{scale: 1.1, backgroundColor: 'rgb(243 244 246)'}}
       whileTap={{scale: 0.9}}
     >
-      {link ? <Link to={`/projects/${link}`}>{cardContent}</Link> : cardContent}
+      {link ? <Link to={`/${link}`}>{cardContent}</Link> : cardContent}
     </motion.button>
   );
 }

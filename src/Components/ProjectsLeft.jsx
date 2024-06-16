@@ -53,16 +53,18 @@ function ProjectsLeft() {
       <div className="grid grid-cols-2 gap-2">
         {projects.map((project, index) => showDemoCard === index ?
           (
-            <SplitCard key={project.id}  img1={iconPlay} img2={iconDocs} leftText="Demo" rightText="Docs"
+            <SplitCard key={project.id} img1={iconPlay} img2={iconDocs} leftText="Demo" rightText="Docs"
                        setShowDemoCard={setShowDemoCard} index={index} linkLeft={project.linkLeft}
                        linkRight={project.linkRight}/>
           )
-          : (<Card key={project.id}  img1={project.img1} img2={project.img2} title={project.title} text={project.text}
+          : (<Card key={project.id} img1={project.img1} img2={project.img2} title={project.title} text={project.text}
                    setShowDemoCard={setShowDemoCard} index={index}/>)
         )}
 
         <Card id={4} img1={iconCpp} img2={iconDataStructure} setShowDemoCard={setShowDemoCard} title={"DSA"}
-              text={"Data Structures and Algorithms"} link="dsa"></Card>
+              text={"Data Structures and Algorithms"} link="projects/dsa"></Card>
+        <Card id={5} img1={iconCpp} img2={iconDataStructure} setShowDemoCard={setShowDemoCard} title={"Sorting"}
+              text={"Sorting Algorithms Visualiser"} link="sorting"></Card>
       </div>
     </>
   )
