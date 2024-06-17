@@ -1,4 +1,4 @@
-import '../App.scss'
+import './App.scss'
 const AnimatedLetters = ({ letterClass, strArray, idx }) => {
   return (
     <span>

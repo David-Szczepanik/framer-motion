@@ -68,7 +68,7 @@ const Tab = ({children, setPosition, to, isVertical}) => {
           });
         }}
         className="relative z-10 block cursor-pointer px-3 py-1.5  uppercase text-white  md:px-5 md:py-2 md:text-base"
-        style={{fontFamily: 'Cascadia Mono, Arial', fontSize: '18px'}}
+        style={{fontFamily: 'Cascadia Mono, Arial'}}
       >
         {children}
       </li>

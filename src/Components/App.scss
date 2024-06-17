@@ -1,4 +1,13 @@
-@import 'animate.css';
+@import '../../node_modules/animate.css';
+
+@font-face {
+  font-family: 'Bookerly';
+  src: url('../../public/Bookerly.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Bookerly Italic';
+  src: url('../../public/Bookerly Italic.ttf') format('truetype');
+}
 
 .text-animate {
   display: inline-block;
@@ -33,9 +42,10 @@
     position: absolute;
     left: 10%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-75%);
     width: 40%;
     max-height: 90%;
+    font-family: 'Bookerly', sans-serif;
 
     h1 {
       color: #ffffff;
@@ -54,15 +64,16 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box !important;
+  //box-sizing: border-box !important;
 }
 
 html, body {
-  height: 100%;
+  //height: 100%;
 }
 
 body {
-  background-image: url("../src/Components/nebula.jpg");
+  //background-image: url("nebula.jpg");
+  background-image: url("blue-water.jpg");
   display: table;
   width: 100%;
   height: 100%;
@@ -71,7 +82,7 @@ body {
   line-height: 1.6;
   position: relative;
   font-family: sans-serif;
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 //.lines {
@@ -125,3 +136,16 @@ body {
     top: 110%;
   }
 }
+//-------------
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 0.5s ease-in-out 0s 2;
+}
+
+
+//-------------

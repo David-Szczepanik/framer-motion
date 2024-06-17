@@ -21,38 +21,37 @@ function SplitCard({
     setShowDemoCard(false);
   }
 
+
   return (
     <>
       <motion.div
-        id={`split-card-${id}`}
-        style={{width: '230px', height: '170px'}}
-        className="flex border border-gray-400 rounded-lg shadow-md text-center relative"
+        className="flex border border-gray-400 rounded-lg shadow-md text-center relative h-full"
       >
         <div className="absolute top-0 left-0 w-6 h-6 bg-auto hover:bg-gray-300 rounded-lg" onClick={handleClickBack}>
           <img src={iconBack} alt="back"/>
         </div>
 
         {/*Left*/}
-        <motion.div
-          className="square-half flex-1 bg-white transition-0.3 rounded-lg flex flex-col justify-center items-center"
-          whileHover={{backgroundColor: 'rgb(243 244 246)'}}
-        >
-          <Link to={`/projects/${linkLeft}`}>
+        <Link to={`/projects/${linkLeft}`} className="w-full h-full flex items-stretch">
+          <motion.div
+            className="square-half flex-1 bg-white text-black transition-0.3 rounded-l-lg flex flex-col justify-center items-center"
+            whileHover={{backgroundColor: 'rgba(255,255,255,0.73)'}}
+          >
             <img src={img1} alt="Back" className="w-14 h-14"/>
             <p>{leftText}</p>
-          </Link>
-        </motion.div>
+          </motion.div>
+        </Link>
 
         {/*Right*/}
-        <motion.div
-          className="square-half flex-1 bg-white transition-0.3 rounded-lg flex flex-col justify-center items-center"
-          whileHover={{backgroundColor: 'rgb(243 244 246)'}}
-        >
-          <Link to={`/projects/${linkRight}`}>
+        <Link to={`/projects/${linkRight}`} className="w-full h-full flex items-stretch">
+          <motion.div
+            className="square-half flex-1 bg-white text-black transition-0.3 rounded-r-lg flex flex-col justify-center items-center"
+            whileHover={{backgroundColor: 'rgba(255,255,255,0.73)'}}
+          >
             <img src={img2} alt="Demo" className="w-14 h-14"/>
             <p>{rightText}</p>
-          </Link>
-        </motion.div>
+          </motion.div>
+        </Link>
       </motion.div>
     </>
   )

@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Line from "./Line";
 import BubbleSort from "./BubbleSort";
+import SortingInfo from "./SortingInfo";
 
 function Sorting() {
   const [data, setData] = useState(generateRandomNumbers(45));
@@ -14,6 +15,7 @@ function Sorting() {
   const [containerWidth, setContainerWidth] = useState(700);
   const generateButtonRef = useRef(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     animationSpeedRef.current = animationSpeed;
@@ -30,9 +32,18 @@ function Sorting() {
     window.addEventListener('resize', updateContainerWidth);
 
     return () => {
-      console.log(containerWidth)
+      console.log(containerWidth);
       window.removeEventListener('resize', updateContainerWidth);
     };
+  }, []);
+
+  useEffect(() => {
+    if (dropdownRef.current) {
+      dropdownRef.current.classList.add('blink');
+      setTimeout(() => {
+        dropdownRef.current.classList.remove('blink');
+      }, 2000); // Duration of the animation: 0.5s * 2 iterations * 2 (for blink timing) = 2s
+    }
   }, []);
 
   const handleSort = () => {
@@ -44,7 +55,7 @@ function Sorting() {
   };
 
   function generateRandomNumbers(num = 50) {
-    return Array.from({length: num}, () => Math.floor(Math.random() * 37 + 1));
+    return Array.from({length: num}, () => Math.floor(Math.random() * 35 + 1));
   }
 
   const handleStop = () => {
@@ -62,91 +73,109 @@ function Sorting() {
       if (compareIndices.includes(index)) {
         color = compareIndices[2] === 'red' && compareIndices.includes(index) ? 'red' : 'green';
       }
-      return <Line height={height} xPos={index} color={color} width={lineWidth} key={index}/>;
+      return (
+        <Line height={height} xPos={index} color={color} width={lineWidth} key={index}/>
+      )
     });
   };
 
-  return (<div className="px-3 h-96">
-      <div ref={containerRef} className="flex flex-row items-end border-4 rounded-md border-black h-full w-full">
-        {renderLines(data)}
-      </div>
-
-      {/*BAR*/}
-      <div className="flex flex-col items-center rounded-md p-4 bg-gray-200">
-        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 justify-center">
-          <div>
-            <input
-              type="range"
-              min="10"
-              max="500"
-              value={animationSpeed}
-              onChange={(e) => setAnimationSpeed(Number(e.target.value))}
-            />
-            <span>{animationSpeed} ms</span>
-          </div>
-
-          {/*DROPDOWN*/}
-          <div className="relative inline-flex">
-            <select
-              className="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
-              value={selectedSort}
-              onChange={(e) => setSelectedSort(e.target.value)}
-            >
-              <option>Bubble Sort</option>
-              <option>Quick Sort</option>
-            </select>
-          </div>
-
-          {/*NUMBER INPUT*/}
-          <div>
-            <input
-              type="number"
-              min="10"
-              max="100"
-              value={numElements}
-              onChange={(e) => {
-                const value = e.target.value;
-                setNumElements(value === '' ? '' : Number(value));
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  generateButtonRef.current.click();
-                }
-              }}
-              onFocus={() => setIsInputFocused(true)}
-              onBlur={() => setIsInputFocused(false)}
-              className="border border-gray-300 rounded-full text-gray-600 h-10 pl-2 bg-white hover:border-gray-400 focus:outline-none"
-            />
-            <span> Elements</span>
-          </div>
-
-          {/*BUTTONS*/}
-          <button
-            ref={generateButtonRef}
-            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded-full ${isInputFocused ? 'ring-2 ring-black' : ''}`}
-            onClick={() => {
-              handleStop();
-              setData(generateRandomNumbers(numElements));
-            }}
-          >
-            Generate
-          </button>
-
-          <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold px-4 rounded-full"
-            onClick={handleSort}
-          >
-            Sort
-          </button>
-          <button
-            className="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded-full"
-            onClick={handleStop}
-          >
-            Stop
-          </button>
+  return (
+    <>
+      <div className="px-4 pb-6">
+        <div className="border-black border-4 rounded-md h-60 w-full">
+          <SortingInfo/>
         </div>
       </div>
-  </div>);
+
+      {/*DATA*/}
+      <div className="px-4 h-96 pb-6">
+        <div
+          ref={containerRef}
+          className="bg-gradient-to-t from-white flex pl-1.5 flex-row items-end h-full w-full"
+        >
+          {renderLines(data)}
+        </div>
+
+        {/*BAR*/}
+        <div className="flex flex-col bg-gradient-to-b from-white items-center rounded-b-md p-4 bg-gray-200">
+          <div
+            className="flex flex-col sm:flex-row text-black font-bold space-y-2 sm:space-y-0 sm:space-x-2 justify-center">
+            <div className="flex items-center justify-center">
+              <input
+                type="range"
+                min="10"
+                max="500"
+                value={animationSpeed}
+                onChange={(e) => setAnimationSpeed(Number(e.target.value))}
+              />
+              <span>{animationSpeed} ms</span>
+            </div>
+
+            {/*DROPDOWN*/}
+            <div className="relative inline-flex">
+              <select
+                ref={dropdownRef}
+                className="border border-gray-300 rounded-full text-black h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+                value={selectedSort}
+                onChange={(e) => setSelectedSort(e.target.value)}
+              >
+                <option>Bubble Sort</option>
+                <option>Quick Sort</option>
+              </select>
+            </div>
+
+            {/*NUMBER INPUT*/}
+            <div>
+              <input
+                type="number"
+                min="10"
+                max="100"
+                value={numElements}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setNumElements(value === '' ? '' : Number(value));
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    generateButtonRef.current.click();
+                  }
+                }}
+                onFocus={() => setIsInputFocused(true)}
+                onBlur={() => setIsInputFocused(false)}
+                className="border border-gray-300 rounded-full text-black h-10 pl-2 bg-white hover:border-gray-400 focus:outline-none"
+              />
+              <span> Elements</span>
+            </div>
+
+            {/*BUTTONS*/}
+            <button
+              ref={generateButtonRef}
+              className={`bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded-full ${isInputFocused ? 'ring-2 ring-black' : ''}`}
+              onClick={() => {
+                handleStop();
+                setData(generateRandomNumbers(numElements));
+              }}
+            >
+              Generate
+            </button>
+
+            <button
+              className="bg-green-500 hover:bg-green-700 text-white font-bold px-4 rounded-full"
+              onClick={handleSort}
+            >
+              Sort
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded-full"
+              onClick={handleStop}
+            >
+              Stop
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Sorting;
