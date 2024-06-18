@@ -1,9 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import '../../node_modules/animate.css';
 
 @font-face {
   font-family: 'Bookerly';
   src: url('../../public/Bookerly.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'Bookerly Italic';
   src: url('../../public/Bookerly Italic.ttf') format('truetype');
@@ -31,7 +36,7 @@
   }
 }
 
-@for $i from 1 through 100 {
+@for $i from 1 through 40 {
   .text-animate._#{$i} {
     animation-delay: #{calc($i / 12)}s;
   }
@@ -136,11 +141,16 @@ body {
     top: 110%;
   }
 }
+
 //-------------
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .blink {
