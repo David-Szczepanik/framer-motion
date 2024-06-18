@@ -50,7 +50,7 @@ function ProjectsLeft() {
   return (
     <>
       <h1 className="w-full flex-none mb-2 text-2xl font-semibold">Projects</h1>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-2">
         {projects.map((project, index) => showDemoCard === index ?
           (
             <SplitCard key={project.id} img1={iconPlay} img2={iconDocs} leftText="Demo" rightText="Docs"

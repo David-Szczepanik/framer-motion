@@ -61,7 +61,8 @@ function Contact() {
         marginLeft: 'auto',
         backgroundColor: 'rgba(0,0,0,0.6)',
         border: '1px solid black',
-        cursor: 'default'
+        cursor: 'default',
+        paddingTop: '1rem',
       }}
       className="relative rounded-lg flex flex-col justify-center items-center"
       onHoverStart={() => controls.start({
@@ -70,9 +71,8 @@ function Contact() {
       onHoverEnd={() => controls.start({borderColor: 'rgb(0,0,0)'})}
       animate={controls}
     >
-      <div style={{fontFamily: 'Bookerly', fontSize: '18px', color: 'white'}}>
+      <div style={{fontFamily: 'Bookerly Italic', fontSize: '22px', color: 'white', fontWeight: 'bold'}}>
         <form className="flex flex-col items-center justify-center" onSubmit={handleSubmit(onSubmit)}>
-          <br/>
           <h2>Contact me</h2>
           <TextField
             type="text"
@@ -138,7 +138,7 @@ function Contact() {
           </Button>
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey={process.env.RECAPTCHA_SITE_KEY}
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             onChange={handleRecaptchaChange}
             className="mt-4"
           />
