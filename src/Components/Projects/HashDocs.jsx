@@ -2,11 +2,12 @@ function HashDocs() {
 
   return (
     <>
-      <h1>Hashing file Docs |<a href="http://localhost:8080" className="hover:bg-gray-200 rounded-lg"> <strong>Open in
-        Fullscreen</strong></a>
+      <h1>Hashing file Docs |
+        <a href="https://szczepanik.cz:3000/docs/hash/docs" className="hover:bg-gray-200 hover:text-black rounded-lg"
+           target="_blank" rel="noopener noreferrer">
+          <strong>Open in Fullscreen</strong></a>
       </h1>
-      {/*<iframe title="Leaflet App" src="H:\TypeScript\Node.js-API-File_Hashing\docs\index.html" width="100%" height="800px"></iframe>*/}
-      <iframe title="Leaflet App" src="/docs/hash/docs/index.html" width="100%" height="800px"></iframe>
+      <iframe title="Hashing Docs" src="https://szczepanik.cz:3000/docs/hash/docs" width="100%" height="800px"></iframe>
     </>
   )
 }

@@ -5,7 +5,6 @@ import LeafletDocs from "./Projects/LeafletDocs";
 import Hash from "./Projects/Hash";
 import HashDocs from "./Projects/HashDocs";
 import Tetris from './Projects/Tetris';
-import TetrisDocs from "./Projects/TetrisDocs";
 import DSA from './Projects/DSA';
 
 function Projects() {
@@ -30,8 +29,8 @@ function Projects() {
             <Route path="leafletDocs" element={<LeafletDocs/>}/>
             <Route path="hashDemo" element={<Hash/>}/>
             <Route path="hashDocs" element={<HashDocs/>}/>
-            <Route path="tetrisDemo" element={<Tetris/>}/>
-            <Route path="tetrisDocs" element={<TetrisDocs/>}/>
+            <Route path="tetris" element={<Tetris/>}/>
+            {/*<Route path="tetrisDocs" element={<TetrisDocs/>}/>*/}
             <Route path="dsa" element={<DSA/>}/>
           </Routes>
         </div>

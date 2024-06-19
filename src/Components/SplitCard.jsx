@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom"
 import {motion} from 'framer-motion';
-import {useState} from 'react';
 import iconBack from "./icons/back.svg"
 
 function SplitCard({
@@ -13,14 +12,10 @@ function SplitCard({
                      linkLeft = 'linkLeft',
                      linkRight
                    }) {
-  const [isClicked, setIsClicked] = useState(false);
 
-  const handleClickBack = (event) => {
-    event.stopPropagation();
-    setIsClicked(false);
+  const handleClickBack = () => {
     setShowDemoCard(false);
   }
-
 
   return (
     <>

@@ -35,13 +35,15 @@ function Sorting() {
       console.log(containerWidth);
       window.removeEventListener('resize', updateContainerWidth);
     };
-  }, []);
+  }, [containerWidth]);
 
   useEffect(() => {
     if (dropdownRef.current) {
       dropdownRef.current.classList.add('blink');
       setTimeout(() => {
-        dropdownRef.current.classList.remove('blink');
+        if (dropdownRef.current) {
+          dropdownRef.current.classList.remove('blink');
+        }
       }, 2000); // Duration of the animation: 0.5s * 2 iterations * 2 (for blink timing) = 2s
     }
   }, []);

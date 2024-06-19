@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(window.innerWidth < 768);
-  const [isVertical, setIsVertical] = useState(false);
+  const [isVertical] = useState(false);
 
   const checkSize = () => {
     setIsOpen(window.innerWidth < 768);

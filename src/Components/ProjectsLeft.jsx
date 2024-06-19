@@ -34,16 +34,16 @@ function ProjectsLeft() {
       linkLeft: "hashDemo",
       linkRight: "hashDocs"
     },
-    {
-      id: 3,
-      img1: iconCpp,
-      img2: iconTetris,
-      title: "Tetris",
-      text: "Raylib | WASM",
-      leftText: "Demo3",
-      linkLeft: "tetrisDemo",
-      linkRight: "tetrisDocs"
-    },
+    // {
+    //   id: 3,
+    //   img1: iconCpp,
+    //   img2: iconTetris,
+    //   title: "Tetris",
+    //   text: "Raylib | WASM",
+    //   leftText: "Demo3",
+    //   linkLeft: "tetrisDemo",
+    //   linkRight: "tetrisDocs"
+    // },
     // {img1: iconCpp, img2: iconDataStructure, title: "DSA", text: "Data Structures and Algorithms", leftText: "Demo4"}
   ];
 
@@ -60,7 +60,7 @@ function ProjectsLeft() {
           : (<Card key={project.id} img1={project.img1} img2={project.img2} title={project.title} text={project.text}
                    setShowDemoCard={setShowDemoCard} index={index}/>)
         )}
-
+        <Card id={3} img1={iconCpp} img2={iconTetris} setShowDemoCard={setShowDemoCard} title={"Tetris"} text={"Raylib | WASM"} link="projects/tetris"/>
         <Card id={4} img1={iconCpp} img2={iconDataStructure} setShowDemoCard={setShowDemoCard} title={"DSA"}
               text={"Data Structures and Algorithms"} link="projects/dsa"></Card>
         <Card id={5} img1={iconCpp} img2={iconDataStructure} setShowDemoCard={setShowDemoCard} title={"Sorting"}

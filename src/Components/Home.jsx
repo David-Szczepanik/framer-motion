@@ -6,7 +6,7 @@ import {LuMail} from "react-icons/lu";
 
 
 function Home() {
-  const [letterClass, setLetterClass] = useState('text-animate');
+  const [letterClass] = useState('text-animate');
 
   const greetingArray = 'Hi,'.split('');
   const nameArray = 'I\'m David'.split('');
@@ -29,7 +29,8 @@ function Home() {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row md:justify-between items-center md:items-start md:px-5 lg:px-80 px-4 py-8">
+      <div
+        className="flex flex-col md:flex-row md:justify-between items-center md:items-start md:px-5 lg:px-80 px-4 py-8">
 
         {/*PROFILE & TEXT*/}
         <div
@@ -69,9 +70,8 @@ function Home() {
         </div>
 
 
+        {/*CONTACT CARD*/}
         <div className="md:ml-auto lg:mr-40 mt-8 ">
-          {/*CONTACT CARD*/}
-
           <motion.div
             style={{
               position: 'relative',
@@ -115,8 +115,8 @@ function Home() {
               </div>
             </div>
           </motion.div>
-
         </div>
+
       </div>
 
     </>

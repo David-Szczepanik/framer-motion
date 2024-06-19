@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 import {useState, useRef, useEffect} from 'react';
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function Card({img1 = 'img1', img2 = 'img2', title = 'title', text = 'text', setShowDemoCard, index, link}) {
-  const [isClicked, setIsClicked] = useState(false);
   const divRef = useRef(null);
-  const [dimensions, setDimensions] = useState({
+  const [setDimensions] = useState({
     width: 0,
     height: 0,
     top: 0,
@@ -18,11 +17,10 @@ function Card({img1 = 'img1', img2 = 'img2', title = 'title', text = 'text', set
 
     const {width, height, top, left} = divRef.current.getBoundingClientRect();
     setDimensions({width, height, top, left});
-  }, []);
+  }, [setDimensions]);
 
 
   const handleClick = (index) => {
-    setIsClicked(true);
     setShowDemoCard(index);
   };
 
@@ -42,7 +40,6 @@ function Card({img1 = 'img1', img2 = 'img2', title = 'title', text = 'text', set
     <motion.button
       onClick={() => handleClick(index)}
       style={{width: '230px', height: '170px'}}
-      // className="flex-1 bg-white border border-gray-400 transition-0.3 rounded-lg flex flex-col justify-center items-center neon-border"
       className="flex-1 bg-white bg-opacity-60 border border-gray-400 transition-0.3 rounded-lg flex flex-col justify-center items-center shadow-lg"
       whileHover={{scale: 1.1, backgroundColor: 'rgb(243 244 246)'}}
       whileTap={{scale: 0.9}}
