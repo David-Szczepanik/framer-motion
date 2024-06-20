@@ -47,8 +47,8 @@ function Contact() {
     };
 
     try {
-      await axios.post('http://localhost:3000/recaptcha', {token, inputVal: data.message});
-      await axios.post('http://localhost:3000/send-email', emailData);
+      await axios.post('https://szczepanik.cz:3000/recaptcha', {token, inputVal: data.message});
+      await axios.post('https://szczepanik.cz:3000/send-email', emailData);
       alert('Email sent successfully');
     } catch (error) {
       console.error('Error sending email:', error);
