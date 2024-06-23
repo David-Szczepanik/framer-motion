@@ -83,9 +83,11 @@ function Sorting() {
 
   return (
     <>
+      {/*INFO*/}
       <div className="px-4 pb-6">
         <div className="border-black border-4 rounded-md h-60 w-full">
           <SortingInfo/>
+
         </div>
       </div>
 

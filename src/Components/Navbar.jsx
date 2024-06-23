@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
+import ReactGA from 'react-ga4';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(window.innerWidth < 768);
@@ -51,8 +52,16 @@ const SlideTabs = ({isVertical}) => {
 const Tab = ({children, setPosition, to, isVertical}) => {
   const ref = useRef(null);
 
+
+  const handleClick = () => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: `Clicked on ${children}`
+    });
+  };
+
   return (
-    <Link to={to}>
+    <Link to={to} onClick={handleClick}>
       <li
         ref={ref}
         onMouseEnter={() => {

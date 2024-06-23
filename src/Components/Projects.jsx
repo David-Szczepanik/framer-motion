@@ -16,7 +16,6 @@ function Projects() {
 
       <div className="flex flex-col sm:flex-row ml-4 transition-all duration-200">
         <div className="w-full sm:w-1/4 mr-4 transition-all duration-200"
-
              style={{fontFamily: 'Bookerly Italic', fontSize: '18px'}}
         >
           <ProjectsLeft/>

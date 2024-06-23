@@ -228,13 +228,13 @@ function Contact() {
             <div style={{fontFamily: 'Bookerly', fontSize: '18px', color: 'white', paddingTop: '15px', paddingBottom:'18px',textAlign:'left'}}>
               <ul className="list-none p-0 m-0">
                 <li className="flex items-center mb-2">
-                  <HikingIcon style={{marginRight: '8px', color: 'white'}}/> I like hiking
+                  <HikingIcon style={{marginRight: '8px', color: 'white'}}/>I like hiking
                 </li>
                 <li className="flex items-center mb-2">
-                  <DriveEtaIcon style={{marginRight: '8px', color: 'white'}}/> I enjoy driving
+                  <DriveEtaIcon style={{marginRight: '8px', color: 'white'}}/>I enjoy driving
                 </li>
                 <li className="flex items-center mb-2">
-                  <MusicNoteIcon style={{marginRight: '8px', color: 'white'}}/> I play guitar
+                  <MusicNoteIcon style={{marginRight: '8px', color: 'white'}}/>Playing guitar
                 </li>
                 <li className="flex items-center mb-2">
                   <CodeIcon style={{marginRight: '8px', color: 'white'}}/>Learning JavaScript, C++

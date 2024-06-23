@@ -33,7 +33,7 @@ function SplitCard({
             whileHover={{backgroundColor: 'rgba(255,255,255,0.73)'}}
           >
             <img src={img1} alt="Back" className="w-14 h-14"/>
-            <p>{leftText}</p>
+            <p className="font-bookerly">{leftText}</p>
           </motion.div>
         </Link>
 
@@ -44,7 +44,7 @@ function SplitCard({
             whileHover={{backgroundColor: 'rgba(255,255,255,0.73)'}}
           >
             <img src={img2} alt="Demo" className="w-14 h-14"/>
-            <p>{rightText}</p>
+            <p className="font-bookerly">{rightText}</p>
           </motion.div>
         </Link>
       </motion.div>

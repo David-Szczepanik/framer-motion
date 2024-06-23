@@ -31,8 +31,8 @@ function Card({img1 = 'img1', img2 = 'img2', title = 'title', text = 'text', set
         <img className="w-14 h-14 mb-2" src={img1} alt="img1"/>
         <img className="w-14 h-14 mb-2" src={img2} alt="img2"/>
       </div>
-      <h2 className="font-sans m-0 text-gray-800">{title}</h2>
-      <p className="font-sans text-gray-500">{text}</p>
+      <h2 className="m-0 text-gray-700 font-bookerly">{title}</h2>
+      <p className="text-gray-600 font-bookerly">{text}</p>
     </div>
   );
 
