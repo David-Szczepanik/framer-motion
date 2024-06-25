@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom"
 import {motion} from 'framer-motion';
 import iconBack from "./icons/back.svg"
+import TrackClick from "./TrackClick";
 
 function SplitCard({
                      id = 0,
@@ -29,6 +30,7 @@ function SplitCard({
         {/*Left*/}
         <Link to={`/projects/${linkLeft}`} className="w-full h-full flex items-stretch">
           <motion.div
+            onClick={() => TrackClick(linkLeft)}
             className="square-half flex-1 bg-white text-black transition-0.3 rounded-l-lg flex flex-col justify-center items-center"
             whileHover={{backgroundColor: 'rgba(255,255,255,0.73)'}}
           >
@@ -40,6 +42,7 @@ function SplitCard({
         {/*Right*/}
         <Link to={`/projects/${linkRight}`} className="w-full h-full flex items-stretch">
           <motion.div
+            onClick={() => TrackClick(linkRight)}
             className="square-half flex-1 bg-white text-black transition-0.3 rounded-r-lg flex flex-col justify-center items-center"
             whileHover={{backgroundColor: 'rgba(255,255,255,0.73)'}}
           >

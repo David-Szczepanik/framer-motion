@@ -1,3 +1,4 @@
+import ReactGA from 'react-ga4';
 import ProjectsLeft from "./ProjectsLeft";
 import {Routes, Route} from "react-router-dom";
 import Leaflet from "./Projects/Leaflet";
@@ -6,8 +7,20 @@ import Hash from "./Projects/Hash";
 import HashDocs from "./Projects/HashDocs";
 import Tetris from './Projects/Tetris';
 import DSA from './Projects/DSA';
+import TetrisDocs from "./Projects/TetrisDocs";
+import Hotel from "./Projects/Hotel";
 
 function Projects() {
+
+
+  const handleProjectClick = (projectName) => {
+    console.log('Project clicked: ', projectName);
+    ReactGA.event({
+      action: 'Project navigation',
+      category: 'User',
+      label: projectName
+    });
+  };
   return (
     <>
       <div className="lines">
@@ -18,7 +31,7 @@ function Projects() {
         <div className="w-full sm:w-1/4 mr-4 transition-all duration-200"
              style={{fontFamily: 'Bookerly Italic', fontSize: '18px'}}
         >
-          <ProjectsLeft/>
+          <ProjectsLeft onProjectClick={handleProjectClick}/>
         </div>
 
         <div className="w-full sm:w-3/4 mr-3 transition-all duration-200">
@@ -29,8 +42,9 @@ function Projects() {
             <Route path="hashDemo" element={<Hash/>}/>
             <Route path="hashDocs" element={<HashDocs/>}/>
             <Route path="tetris" element={<Tetris/>}/>
-            {/*<Route path="tetrisDocs" element={<TetrisDocs/>}/>*/}
+            <Route path="tetrisDocs" element={<TetrisDocs/>}/>
             <Route path="dsa" element={<DSA/>}/>
+            <Route path="hotel" element={<Hotel/>}/>
           </Routes>
         </div>
       </div>

@@ -3,9 +3,12 @@ import { motion } from 'framer-motion';
 function Line({ height, xPos, color, width }) {
   return (
     <motion.div
-      style={{ backgroundColor: 'orange' }}
+      style={{
+        backgroundColor: 'orange',
+        boxSizing: 'border-box' // Add this line
+      }}
       animate={{
-        x: xPos * width,
+        x: xPos,
         height: `${height * 10}px`,
         backgroundColor: color,
         width: `${width}px`,

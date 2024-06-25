@@ -1,7 +1,9 @@
+import ReactGA from 'react-ga4';
 import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 import {useState, useRef, useEffect} from 'react';
 import {Link} from "react-router-dom";
+import TrackClick from "./TrackClick";
 
 function Card({img1 = 'img1', img2 = 'img2', title = 'title', text = 'text', setShowDemoCard, index, link}) {
   const divRef = useRef(null);
@@ -22,6 +24,7 @@ function Card({img1 = 'img1', img2 = 'img2', title = 'title', text = 'text', set
 
   const handleClick = (index) => {
     setShowDemoCard(index);
+    TrackClick(title);
   };
 
 

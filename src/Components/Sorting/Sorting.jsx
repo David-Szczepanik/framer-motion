@@ -12,7 +12,7 @@ function Sorting() {
   const isSorting = useRef(false);
   const animationSpeedRef = useRef(animationSpeed);
   const containerRef = useRef(null);
-  const [containerWidth, setContainerWidth] = useState(700);
+  const [containerWidth, setContainerWidth] = useState(10);
   const generateButtonRef = useRef(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
   const dropdownRef = useRef(null);
@@ -67,8 +67,20 @@ function Sorting() {
   };
 
   const renderLines = (heights) => {
-    // Equation to calculate the width of each line to fit the container
-    const lineWidth = containerWidth / heights.length / 2;
+    let lineWidth;
+    if (heights.length > 499) {
+      lineWidth = containerWidth / heights.length - 1.01;
+    } else if (heights.length > 299) {
+      lineWidth = containerWidth / heights.length - 1.02;
+    } else if (heights.length > 199) {
+      lineWidth = containerWidth / heights.length - 1.05;
+    } else if (heights.length > 99) {
+      lineWidth = containerWidth / heights.length - 1.1;
+    } else if (heights.length > 49) {
+      lineWidth = containerWidth / heights.length - 1.1;
+    } else {
+      lineWidth = containerWidth / heights.length - 1.2;
+    }
 
     return heights.map((height, index) => {
       let color = 'orange';

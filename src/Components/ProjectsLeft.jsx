@@ -11,6 +11,8 @@ import iconDataStructure from "./icons/data.png"
 import iconTetris from "./icons/tetris.svg"
 import iconJS from "./icons/js.svg"
 import iconSort from "./icons/sort.png"
+import iconReact from "./icons/react.png"
+import iconHotel from "./icons/hotel.svg"
 
 function ProjectsLeft() {
   const [showDemoCard, setShowDemoCard] = useState(null);
@@ -40,7 +42,7 @@ function ProjectsLeft() {
     linkLeft: "tetris",
     linkRight: "tetrisDocs"
   },
-    // {img1: iconCpp, img2: iconDataStructure, title: "DSA", text: "Data Structures and Algorithms", leftText: "Demo4"}
+    // {img1: iconReact, img2: iconHotel, title: "", text: "Data Structures and Algorithms", leftText: "Demo4"}
   ];
 
   return (<>
@@ -55,7 +57,8 @@ function ProjectsLeft() {
               setShowDemoCard={setShowDemoCard} index={index}/>)
       )}
 
-      {/*<Card id={3} img1={iconCpp} img2={iconTetris} setShowDemoCard={setShowDemoCard} title={"Tetris"} text={"Raylib | WASM"} link="projects/tetris"/>*/}
+      <Card id={3} img1={iconReact} img2={iconHotel} setShowDemoCard={setShowDemoCard} title={"Hotel Web"}
+            text={"React | Bootstrap"} link="projects/hotel"/>
       <Card id={4} img1={iconCpp} img2={iconDataStructure} setShowDemoCard={setShowDemoCard} title={"DSA"}
             text={"Data Structures and Algorithms"} link="projects/dsa"></Card>
       <Card id={5} img1={iconJS} img2={iconSort} setShowDemoCard={setShowDemoCard} title={"Sorting"}
